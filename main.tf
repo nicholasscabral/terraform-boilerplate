@@ -1,7 +1,7 @@
 module "s3" {
-  source            = "./modules/s3"
-  s3_bucket_name    = "bucket-iac"
-  s3_tags           = { Iac = true }
+  source         = "./modules/s3"
+  s3_bucket_name = "bucket-iac"
+  s3_tags        = { Iac = true }
 }
 
 module "cloudfront" {

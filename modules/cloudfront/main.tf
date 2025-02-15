@@ -2,8 +2,8 @@ resource "aws_cloudfront_distribution" "cloudfront" {
   enabled = true
 
   origin {
-    origin_id   = "${var.origin_id}"
-    domain_name = "${var.bucket_domain_name}"
+    origin_id   = var.origin_id
+    domain_name = var.bucket_domain_name
     custom_origin_config {
       http_port              = 80
       https_port             = 443
@@ -13,7 +13,7 @@ resource "aws_cloudfront_distribution" "cloudfront" {
   }
 
   default_cache_behavior {
-    target_origin_id = "${var.origin_id}"
+    target_origin_id = var.origin_id
     allowed_methods  = ["GET", "HEAD"]
     cached_methods   = ["GET", "HEAD"]
     forwarded_values {
@@ -38,7 +38,7 @@ resource "aws_cloudfront_distribution" "cloudfront" {
     cloudfront_default_certificate = true
   }
 
-  price_class = "${var.cdn_price_class}"
+  price_class = var.cdn_price_class
 
-  tags = "${var.cdn_tags}"
+  tags = var.cdn_tags
 }
