@@ -9,5 +9,5 @@ terraform {
 
 provider "aws" {
   region  = "us-east-1"
-  profile = "terraform"
+  profile = "terraform" // AWS cli profile
 }
