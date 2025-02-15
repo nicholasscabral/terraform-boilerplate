@@ -1,0 +1,14 @@
+# Terraform state & plan files
+terraform.tfstate
+terraform.tfstate.backup
+*.tfplan
+
+# Terraform lock file
+.terraform.lock.hcl
+
+# Terraform cache directory
+.terraform/
+
+# Ignore all .env files
+.env
+.env.*
