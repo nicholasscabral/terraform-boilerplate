@@ -1,6 +1,6 @@
 module "s3" {
   source            = "./modules/s3"
-  s3_bucket_name    = "nicholas-iac"
+  s3_bucket_name    = "bucket-iac"
   s3_tags           = { Iac = true }
 }
 
@@ -11,4 +11,14 @@ module "cloudfront" {
   cdn_price_class    = "PriceClass_200"
   cdn_tags           = { Iac = true }
   depends_on         = [module.s3]
+}
+
+module "sqs" {
+  source  = "terraform-aws-modules/sqs/aws"
+  name = "sqs-iac"
+  create_dlq = true
+
+  tags = {
+    Iac = true
+  }
 }

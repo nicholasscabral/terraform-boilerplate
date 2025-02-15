@@ -8,6 +8,7 @@ terraform.tfstate.backup
 
 # Terraform cache directory
 .terraform/
+terraform.tfstate.d/
 
 # Ignore all .env files
 .env
